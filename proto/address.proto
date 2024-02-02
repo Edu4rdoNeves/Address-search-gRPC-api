@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "./pb";
+
+
+service AddressServices {
+    rpc SearchAddress(AddressRequest) returns (SearchAddressResponse) {}
+}
+
+message AddressRequest {
+    string cep = 1;
+}
+
+message SearchAddressResponse{
+    AddressCorreiosResponse addressCorreiosResponse = 1;
+    AddressByViaCepResponse addressByViaCepResponse = 2;
+}
+
+message AddressCorreiosResponse {
+    string cep = 1;
+    string state = 2;
+    string city = 3;
+    string neighborhood = 4;
+    string street = 5;
+    string service = 6;
+}
+
+message AddressByViaCepResponse {
+    string cep = 1;
+    string logradouro = 2;
+    string complemento = 3;
+    string bairro = 4;
+    string localidade = 5;
+    string uf = 6;
+    string ibge = 7;
+    string gia = 8;
+    string ddd = 9;
+    string siafi = 10;
+}
