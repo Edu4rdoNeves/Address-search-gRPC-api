@@ -34,12 +34,12 @@ Este é um projeto desenvolvido em Go que fornece um serviço para buscar endere
 ## Utilizando o Evans
 
 - Para interagir com o serviço gRPC, recomenda-se o uso do Evans. Siga as instruções abaixo para baixar e executar o Evans:
-  1. Baixe o Evans do repositório oficial: https://github.com/ktr0731/evans.
-  2. Extraia o arquivo baixado e navegue até o diretório onde o Evans foi baixado.
-  3. Execute o Evans no modo REPL, especificando o arquivo proto e o host e porta do servidor gRPC:
-       - `./evans -r -p 50051 -t [caminho para o arquivo .proto]`
-       - Certifique-se de substituir `[caminho para o arquivo .proto]` pelo caminho correto para o seu arquivo .proto.
+1. Baixe o Evans do repositório oficial: https://github.com/ktr0731/evans.
+2. Extraia o arquivo baixado e navegue até o diretório onde o Evans foi baixado.
+3. Execute o Evans no modo REPL, especificando o arquivo proto e o host e porta do servidor gRPC:
+   1- `./evans -r -p 50051 -t [caminho para o arquivo .proto]`
+   2- Certifique-se de substituir `[caminho para o arquivo .proto]` pelo caminho correto para o seu arquivo .proto.
 
 - Se, ao iniciar o Evans, os métodos não forem encontrados, será criado um arquivo denominado `.evans.toml.` É necessário preencher as informações deste arquivo com base na estrutura do seu projeto.
 
-# Agradeço a todos pela visita e pelo interesse neste projeto. Qualquer contribuição, feedback ou sugestão é sempre bem-vindo!
+## Agradeço a todos pela visita e pelo interesse neste projeto. Qualquer contribuição, feedback ou sugestão é sempre bem-vindo!
