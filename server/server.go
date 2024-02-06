@@ -20,16 +20,18 @@ func GrpcServer() error {
 	pb.RegisterAddressServicesServer(grpcServer, addressService)
 	reflection.Register(grpcServer)
 
-	lis, err := net.Listen("tcp", os.Getenv("SERVER_PORT"))
+	port := os.Getenv("SERVER_PORT")
+
+	lis, err := net.Listen("tcp", port)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	log.Printf("Listening on Port: %s", os.Getenv("SERVER_PORT"))
+	log.Printf("Listening on Port: %s", port)
 
-	if err := grpcServer.Serve(lis); err != nil {
+	err = grpcServer.Serve(lis)
+	if err != nil {
 		log.Fatalf("failed to inicialize servidor. Error: %v", err)
 	}
-
 	return nil
 }

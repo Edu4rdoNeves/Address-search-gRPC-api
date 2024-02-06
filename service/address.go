@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"net/http"
+	"time"
 
 	"github.com/Edu4rdoNeves/Address-search-gRPC-api/business"
 	"github.com/Edu4rdoNeves/Address-search-gRPC-api/dto"
@@ -16,7 +17,9 @@ type AddressService struct {
 }
 
 func NewAddressService(Business business.IAddressBusiness) *AddressService {
-	return &AddressService{business: Business}
+	return &AddressService{
+		business: Business,
+	}
 }
 
 func (a *AddressService) SearchAddress(ctx context.Context, in *pb.AddressRequest) (*pb.SearchAddressResponse, error) {
@@ -58,7 +61,7 @@ func (a *AddressService) SearchAddress(ctx context.Context, in *pb.AddressReques
 			AddressCorreiosResponse: addressCorreios,
 		}, nil
 
-	default:
+	case <-time.After(time.Second * 3):
 		return nil, status.Errorf(http.StatusRequestTimeout, "expired waiting time.")
 	}
 }
